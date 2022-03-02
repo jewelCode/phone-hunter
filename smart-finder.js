@@ -1,6 +1,8 @@
 const searchInput = () => { 
-    const inputPhone = document.getElementById("input-phone").value;
-    const url = `https://openapi.programming-hero.com/api/phones?search=${inputPhone}`
+    const inputPhone = document.getElementById("input-phone");
+    const searchInput = inputPhone.value;
+    inputPhone.value = '';
+    const url = `https://openapi.programming-hero.com/api/phones?search=${searchInput}`
     fetch(url)
     .then(response => response.json())
     .then(data => displayPhone(data.data.slice(0, 20)))
@@ -10,7 +12,6 @@ const searchInput = () => {
 const displayPhone = (phones) => {
     const phoneCard = document.getElementById("phone-card");
     for(const phone of phones){
-        // console.log(phone);
         const div = document.createElement('div');
         div.classList.add("col-lg-4");
         div.innerHTML = `
@@ -23,7 +24,9 @@ const displayPhone = (phones) => {
         `
         phoneCard.appendChild(div);
         
+        
     }
+    
     
 }
 
