@@ -28,8 +28,7 @@ const displayPhone = (phones) => {
 }
 
 
-const displayPhoneDetails = () =>{
-    
+const displayPhoneDetails = (phones) =>{
     fetch('https://openapi.programming-hero.com/api/phone/apple_iphone_13_pro_max-11089')
     .then(response => response.json())
     .then(data => displayFeatures(data.data));
@@ -40,7 +39,6 @@ const displayPhoneDetails = () =>{
 const displayFeatures = (data) => {
     console.log(data);
     const displayDetails = document.getElementById("phone-details");
-    
         const div = document.createElement("div");
         div.classList.add("border")
         div.innerHTML =`
