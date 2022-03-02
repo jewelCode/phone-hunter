@@ -1,3 +1,5 @@
+
+// Search Input Items
 const searchInput = () => { 
     const inputPhone = document.getElementById("input-phone");
     const searchInput = inputPhone.value;
@@ -13,7 +15,7 @@ const searchInput = () => {
     }
  
 }
-
+// Display Phone Details
 const displayPhone = (phones) => {
     const phoneCard = document.getElementById("phone-card");
     phoneCard.innerHTML = '';
@@ -32,7 +34,7 @@ const displayPhone = (phones) => {
     }
 }
 
-
+// Display phone details
 const displayPhoneDetails = (detail) =>{
     const phoneDetailUrl = `https://openapi.programming-hero.com/api/phone/${detail}`
      fetch(phoneDetailUrl)
