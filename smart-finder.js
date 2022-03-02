@@ -4,6 +4,7 @@ const searchInput = () => {
     fetch(url)
     .then(response => response.json())
     .then(data => displayPhone(data.data.slice(0, 20)))
+    
 }
 
 const displayPhone = (phones) => {
@@ -14,23 +15,23 @@ const displayPhone = (phones) => {
         const div = document.createElement('div');
         div.classList.add("col-lg-4");
         div.innerHTML = `
-        
           <div class="border text-center p-3">
                 <div class="mt-3"><img src=${phone.image}></div>
                 <h5>${phone.brand}</h5>
                 <h5>${phone.phone_name}</h5>
                 <button onClick="displayPhoneDetails('${phone.slug}')" class="btn btn-primary">See More</button>
-          </div>
+                </div>
         `
         phoneCard.appendChild(div);
         
     }
+    
 }
 
 
 const displayPhoneDetails = (detail) =>{
-    const urls = `https://openapi.programming-hero.com/api/phone/${detail}`
-    fetch(urls)
+    const phoneDetailUrl = `https://openapi.programming-hero.com/api/phone/${detail}`
+    fetch(phoneDetailUrl)
     .then(response => response.json())
     .then(data => displayFeatures(data.data));
 }
@@ -49,9 +50,8 @@ const displayFeatures = (data) => {
             <h5>Display Size: ${data.mainFeatures.displaySize}</h5>
             <h5>Chipset: ${data.mainFeatures.chipSet}</h5>
             <h5>Memory: ${data.mainFeatures.memory}</h5>
+            <h5>Release Date: ${data.releaseDate}</h5>
         `
         displayDetails.appendChild(div)
-        
-   
 }
 
