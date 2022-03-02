@@ -9,7 +9,6 @@ const searchInput = () => {
 
 const displayPhone = (phones) => {
     const phoneCard = document.getElementById("phone-card");
-    // console.log(phones)
     for(const phone of phones){
         // console.log(phone);
         const div = document.createElement('div');
@@ -39,7 +38,8 @@ const displayPhoneDetails = (detail) =>{
 
 
 const displayFeatures = (data) => {
-    const displayDetails = document.getElementById("phone-details");
+        const displayDetails = document.getElementById("phone-details");
+        displayDetails.innerHTML = '';
         const div = document.createElement("div");
         div.classList.add("border")
         div.innerHTML =`
@@ -50,7 +50,7 @@ const displayFeatures = (data) => {
             <h5>Display Size: ${data.mainFeatures.displaySize}</h5>
             <h5>Chipset: ${data.mainFeatures.chipSet}</h5>
             <h5>Memory: ${data.mainFeatures.memory}</h5>
-            <h5>Release Date: ${data.releaseDate}</h5>
+            <h5>Release Date: ${data.releaseDate ?data.releaseDate: "No Release Date Found"}</h5>
         `
         displayDetails.appendChild(div)
 }
