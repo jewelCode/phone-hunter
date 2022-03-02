@@ -12,14 +12,14 @@ const displayPhone = (phones) => {
     for(const phone of phones){
         // console.log(phone);
         const div = document.createElement('div');
-        div.classList.add("col-md-4");
+        div.classList.add("col-lg-4");
         div.innerHTML = `
         
           <div class="border text-center p-3">
                 <div class="mt-3"><img src=${phone.image}></div>
                 <h5>${phone.brand}</h5>
                 <h5>${phone.phone_name}</h5>
-                <button onClick="displayPhoneDetails()" class="btn btn-primary">See More</button>
+                <button onClick="displayPhoneDetails('${phone.slug}')" class="btn btn-primary">See More</button>
           </div>
         `
         phoneCard.appendChild(div);
@@ -28,8 +28,9 @@ const displayPhone = (phones) => {
 }
 
 
-const displayPhoneDetails = (phones) =>{
-    fetch('https://openapi.programming-hero.com/api/phone/apple_iphone_13_pro_max-11089')
+const displayPhoneDetails = (detail) =>{
+    const urls = `https://openapi.programming-hero.com/api/phone/${detail}`
+    fetch(urls)
     .then(response => response.json())
     .then(data => displayFeatures(data.data));
 }
@@ -37,7 +38,6 @@ const displayPhoneDetails = (phones) =>{
 
 
 const displayFeatures = (data) => {
-    console.log(data);
     const displayDetails = document.getElementById("phone-details");
         const div = document.createElement("div");
         div.classList.add("border")
@@ -51,8 +51,7 @@ const displayFeatures = (data) => {
             <h5>Memory: ${data.mainFeatures.memory}</h5>
         `
         displayDetails.appendChild(div)
+        
    
- 
-
 }
 
