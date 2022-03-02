@@ -54,11 +54,12 @@ const displayFeatures = (data) => {
             <img class="mt-3" src="${data.image}"></img>
             <h5>Brand: ${data.brand}</h5>
             <h5>Product Name: ${data.name}</h5>
+            <h5>Release Date: ${data.releaseDate ?data.releaseDate: "No Release Date Found"}</h5>
             <h5>Storage: ${data.mainFeatures.storage}</h5>
             <h5>Display Size: ${data.mainFeatures.displaySize}</h5>
             <h5>Chipset: ${data.mainFeatures.chipSet}</h5>
             <h5>Memory: ${data.mainFeatures.memory}</h5>
-            <h5>Release Date: ${data.releaseDate ?data.releaseDate: "No Release Date Found"}</h5>
+            <p>${data.mainFeatures.sensors}</p>
         `
         displayDetails.appendChild(div)
 }
