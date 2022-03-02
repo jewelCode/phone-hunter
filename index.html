@@ -10,17 +10,18 @@
 
     <title>Smart Device Finder</title>
   </head>
-  <body class="container">
-        <h1 class="text-center">Smart Device Finder</h1>
+  <body class="container mt-5">
+        <div class="bg-warning p-5">
+          <h1 class="text-center text-white">Smart Device Finder</h1>
+        </div>
 
                     <!-- Search Field -->
         <div class="input-group mt-5">
-            <input id="input-phone" type="text" class="form-control w-50" placeholder="Search Your Favorite Device" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input id="input-phone" type="text" class="form-control w-50 p-3" placeholder="Search Your Favorite Device" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
-              <button onClick="searchInput()" class="btn btn-outline-success" type="button">Search</button>
+              <button onClick="searchInput()" class="btn btn-success p-3" type="button">Search</button>
             </div>
         </div>
-        <h3 id="erorr-message"></h3>
 
                     <!-- Phone Details Section -->
         <section class="text-center mt-5" id="phone-details">
