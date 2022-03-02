@@ -8,7 +8,7 @@ const searchInput = () => {
 
 const displayPhone = (phones) => {
     const phoneCard = document.getElementById("phone-card");
-    console.log(phones)
+    // console.log(phones)
     for(const phone of phones){
         // console.log(phone);
         const div = document.createElement('div');
@@ -19,7 +19,7 @@ const displayPhone = (phones) => {
                 <div class="mt-3"><img src=${phone.image}></div>
                 <h5>${phone.brand}</h5>
                 <h5>${phone.phone_name}</h5>
-                <button onClick="displayPhoneDetails(${phone.slug})" class="btn btn-primary">See More</button>
+                <button onClick="displayPhoneDetails()" class="btn btn-primary">See More</button>
           </div>
         `
         phoneCard.appendChild(div);
@@ -27,8 +27,34 @@ const displayPhone = (phones) => {
     }
 }
 
-const displayPhoneDetails = slug =>{
-    console.log(slug);
+
+const displayPhoneDetails = () =>{
     
+    fetch('https://openapi.programming-hero.com/api/phone/apple_iphone_13_pro_max-11089')
+    .then(response => response.json())
+    .then(data => displayFeatures(data.data));
+}
+
+
+
+const displayFeatures = (data) => {
+    console.log(data);
+    const displayDetails = document.getElementById("phone-details");
+    
+        const div = document.createElement("div");
+        div.classList.add("border")
+        div.innerHTML =`
+            <img class="mt-3" src="${data.image}"></img>
+            <h5>Brand: ${data.brand}</h5>
+            <h5>Product Name: ${data.name}</h5>
+            <h5>Storage: ${data.mainFeatures.storage}</h5>
+            <h5>Display Size: ${data.mainFeatures.displaySize}</h5>
+            <h5>Chipset: ${data.mainFeatures.chipSet}</h5>
+            <h5>Memory: ${data.mainFeatures.memory}</h5>
+        `
+        displayDetails.appendChild(div)
+   
+ 
+
 }
 
