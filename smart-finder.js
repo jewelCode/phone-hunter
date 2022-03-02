@@ -59,7 +59,7 @@ const displayFeatures = (data) => {
             <h5>Display Size: ${data.mainFeatures.displaySize}</h5>
             <h5>Chipset: ${data.mainFeatures.chipSet}</h5>
             <h5>Memory: ${data.mainFeatures.memory}</h5>
-            <p>${data.mainFeatures.sensors}</p>
+            <p>Sensors: ${data.mainFeatures.sensors}</p>
             <ul>
                 <li> WLAN:${data.others.WLAN}</li>
                 <li> Bluetooth:${data.others.Bluetooth}</li>
