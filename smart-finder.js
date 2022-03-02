@@ -60,6 +60,14 @@ const displayFeatures = (data) => {
             <h5>Chipset: ${data.mainFeatures.chipSet}</h5>
             <h5>Memory: ${data.mainFeatures.memory}</h5>
             <p>${data.mainFeatures.sensors}</p>
+            <ul>
+                <li> WLAN:${data.others.WLAN}</li>
+                <li> Bluetooth:${data.others.Bluetooth}</li>
+                <li>GPS: ${data.others.GPS}</li>
+                <li>NFC: ${data.others.NFC}</li>
+                <li>Radio: ${data.others.Radio}</li>
+                <li>USB: ${data.others.USB}</li>
+            </ul>
         `
         displayDetails.appendChild(div)
 }
