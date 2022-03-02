@@ -2,11 +2,17 @@ const searchInput = () => {
     const inputPhone = document.getElementById("input-phone");
     const searchInput = inputPhone.value;
     inputPhone.value = '';
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchInput}`
-    fetch(url)
-    .then(response => response.json())
-    .then(data => displayPhone(data.data.slice(0, 20)))
+    const errorMessage = document.getElementById("erorr-message")
     
+    if(searchInput == ''){
+        alert('Please Enter Your Favorite Device Mobile Name')
+    }
+    else{
+        const url = `https://openapi.programming-hero.com/api/phones?search=${searchInput}`
+        fetch(url)
+        .then(response => response.json())
+        .then(data => displayPhone(data.data.slice(0, 20)))
+    }
 }
 
 const displayPhone = (phones) => {
@@ -23,7 +29,6 @@ const displayPhone = (phones) => {
                 </div>
         `
         phoneCard.appendChild(div);
-        
         
     }
     
